@@ -7,14 +7,18 @@ use ID90\Config\View;
 /**
  * Class LoginAction
  */
-final class LoginAction
+final class LoginAction extends AppController
 {
     public function __invoke($request)
     {
+        $airlines = $this
+            ->getID90ApiClient()
+            ->listAirlines()
+        ;
+
         $view = new View('login');
         $view
-            ->assign('foo', 'bar')
-            ->assign('bar', 'foo')
+            ->assign('airlines', $airlines)
             ->render()
         ;
     }
