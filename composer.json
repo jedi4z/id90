@@ -1,0 +1,30 @@
+{
+    "name": "jedi4z/id90",
+    "type": "project",
+    "license": "Mozilla Public License 2.0",
+    "homepage": "https://github.com/jedi4z/id90",
+    "authors": [
+        {
+            "name": "Jesús Díaz",
+            "email": "jesusdiazbc@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ID90\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ID90\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*",
+        "ext-curl": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8"
+    }
+}
