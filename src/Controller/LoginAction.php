@@ -30,7 +30,7 @@ final class LoginAction extends AppController
 
             header('Location: /secure/hotels');
         } catch (\Exception $e) {
-            header('Location: /auth/login/error');
+            header('Location: /auth/error');
         }
     }
 }
