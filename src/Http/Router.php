@@ -27,7 +27,6 @@ class Router
 
     public function __call($name, $args)
     {
-        var_dump($name); die;
         list($route, $method) = $args;
 
         if (!in_array(strtoupper($name), $this->supportedHttpMethods)) {

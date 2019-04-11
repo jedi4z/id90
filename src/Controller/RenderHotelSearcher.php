@@ -5,7 +5,7 @@ namespace ID90\Controller;
 /**
  * Class SearchHotelAction
  */
-final class SearchHotelAction
+final class RenderHotelSearcher
 {
     public function __invoke()
     {
