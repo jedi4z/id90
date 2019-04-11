@@ -2,24 +2,23 @@
 
 namespace ID90\Controller;
 
-use ID90\Config\View;
+use ID90\Config\Request;
 
 /**
- * Class LoginAction
+ * Class AuthenticateUserAction
  */
 final class LoginAction extends AppController
 {
-    public function __invoke($request)
+    /**
+     * @param Request $request
+     */
+    public function __invoke(Request $request)
     {
-        $airlines = $this
-            ->getID90ApiClient()
-            ->listAirlines()
-        ;
+        $data = $request->getBody();
+        $airline = $data['airline'];
+        $username = $data['username'];
+        $password = $data['password'];
 
-        $view = new View('login');
-        $view
-            ->assign('airlines', $airlines)
-            ->render()
-        ;
+        var_dump($airline, $username, $password); die;
     }
 }
