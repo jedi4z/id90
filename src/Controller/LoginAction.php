@@ -28,7 +28,7 @@ final class LoginAction extends AppController
             $_SESSION['id'] = $response['member']['id'];
             $_SESSION['username'] = $response['member']['username'];
 
-            header('Location: /secure/hotels');
+            header('Location: /secure/hotels/searcher');
         } catch (\Exception $e) {
             header('Location: /auth/error');
         }

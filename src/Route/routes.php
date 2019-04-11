@@ -7,18 +7,22 @@ use ID90\Controller\RenderLoginFormAction;
 use ID90\Controller\RenderLoginErrorAction;
 use ID90\Http\Middleware\CheckLogin;
 use ID90\Controller\LogoutAction;
+use ID90\Controller\RenderHotelResultAction;
 
 $router = new Router();
 $router->get('', new RenderLoginFormAction());
 
 $router->mount('/auth', function () use ($router) {
     $router->post('/login', new LoginAction());
-    $router->get('/error', new RenderLoginErrorAction());
     $router->get('/logout', new LogoutAction());
+    $router->get('/error', new RenderLoginErrorAction());
 });
 
 $router->mount('/secure', function () use ($router) {
-    $router->get('/hotels', new RenderHotelSearcherAction());
+    $router->mount('/hotels', function () use ($router) {
+        $router->get('/searcher', new RenderHotelSearcherAction());
+        $router->get('/results', new RenderHotelResultAction());
+    });
 });
 
 // Configure middleware to check if the user is logged.
