@@ -5,17 +5,18 @@ namespace ID90\Http\Middleware;
 /**
  * Class CheckLogin
  */
-final class CheckLogin implements IMiddleware
+final class CheckLogin
 {
     /**
      * {@inheritdoc}
      */
-    public function beforeRender()
+    public function __invoke()
     {
         session_start();
 
-        if (!(isset($_SESSION['id']) && $_SESSION['id'] != '')) {
-            header('Location: /');
+        if (!isset($_SESSION['id'])) {
+            header('location: /');
+            exit();
         }
     }
 }

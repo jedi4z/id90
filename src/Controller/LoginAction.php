@@ -2,26 +2,20 @@
 
 namespace ID90\Controller;
 
-use ID90\Http\Request;
-
 /**
  * Class AuthenticateUserAction
  */
 final class LoginAction extends AppController
 {
-    /**
-     * @param Request $request
-     */
-    public function __invoke(Request $request)
+    public function __invoke()
     {
-        $data = $request->getBody();
-        $airline = $data['airline'];
-        $username = $data['username'];
-        $password = $data['password'];
+        $airline = $_POST['airline'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
         $rememberMe = 0;
 
-        if (array_key_exists('remember_me', $data)) {
-            $rememberMe = $data['remember_me'];
+        if (array_key_exists('remember_me', $_POST)) {
+            $rememberMe = $_POST['remember_me'];
         }
 
         try {
@@ -34,9 +28,9 @@ final class LoginAction extends AppController
             $_SESSION['id'] = $response['member']['id'];
             $_SESSION['username'] = $response['member']['username'];
 
-            header('Location: /hotels');
+            header('Location: /secure/hotels');
         } catch (\Exception $e) {
-            header('Location: /login/error');
+            header('Location: /auth/login/error');
         }
     }
 }
