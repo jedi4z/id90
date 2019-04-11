@@ -7,7 +7,7 @@ use ID90\Http\View;
 /**
  * Class RenderLoginErrorAction
  */
-class RenderLoginErrorAction extends AppController
+final class RenderLoginErrorAction extends AppController
 {
     public function __invoke()
     {

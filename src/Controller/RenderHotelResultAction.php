@@ -7,7 +7,7 @@ use ID90\Http\View;
 /**
  * Class RenderHotelResultAction
  */
-class RenderHotelResultAction
+final class RenderHotelResultAction
 {
     public function __invoke()
     {
