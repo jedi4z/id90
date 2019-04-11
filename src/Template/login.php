@@ -15,7 +15,7 @@
                                 <h3 class="mb-0">Login</h3>
                             </div>
                             <div class="card-body">
-                                <form action="/login" method="POST" class="form" role="form" autocomplete="off">
+                                <form action="/auth/login" method="POST" class="form" role="form" autocomplete="off">
                                     <div class="form-group">
                                         <label for="airline">Airline</label>
                                         <select name="airline" id="airline" class="form-control form-control-md">

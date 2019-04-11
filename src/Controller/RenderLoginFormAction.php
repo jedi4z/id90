@@ -10,10 +10,7 @@ use ID90\Http\View;
  */
 final class RenderLoginFormAction extends AppController
 {
-    /**
-     * @param Request $request
-     */
-    public function __invoke(Request $request)
+    public function __invoke()
     {
         $airlines = $this
             ->getID90ApiClient()
