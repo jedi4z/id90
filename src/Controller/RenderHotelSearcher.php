@@ -2,13 +2,17 @@
 
 namespace ID90\Controller;
 
+use ID90\Http\View;
+use ID90\Http\Request;
+
 /**
  * Class SearchHotelAction
  */
-final class RenderHotelSearcher
+final class RenderHotelSearcher extends AppController
 {
-    public function __invoke()
+    public function __invoke(Request $request)
     {
-        return 'hotels';
+        $view = new View('hotels');
+        $view->render();
     }
 }
