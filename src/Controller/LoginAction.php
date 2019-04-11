@@ -2,7 +2,6 @@
 
 namespace ID90\Controller;
 
-use GuzzleHttp\Exception\ConnectException;
 use ID90\Http\Request;
 
 /**
@@ -34,12 +33,9 @@ final class LoginAction extends AppController
 
             $_SESSION['id'] = $response['member']['id'];
             $_SESSION['username'] = $response['member']['username'];
-            $_SESSION['first_name'] = $response['member']['first_name'];
-            $_SESSION['last_name'] = $response['member']['last_name'];
-            $_SESSION['email'] = $response['member']['email'];
 
-            header('Location: /');
-        } catch (ConnectException $e) {
+            header('Location: /hotels');
+        } catch (\Exception $e) {
             header('Location: /login/error');
         }
     }

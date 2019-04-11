@@ -20,10 +20,7 @@ abstract class AppController
         return new ID90ApiClient();
     }
 
-    /**
-     * Execute before render functions.
-     */
-    protected function beforeRender()
+    protected function loginRequired()
     {
         $checkLogin = new CheckLogin();
 
