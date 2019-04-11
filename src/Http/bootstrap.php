@@ -8,4 +8,4 @@ $dotenv = Dotenv\Dotenv::create(__DIR__ . '/../../');
 $dotenv->load();
 
 # Load routes
-require dirname(__DIR__) . '/Config/routes.php';
+require dirname(__DIR__) . '/Http/routes.php';

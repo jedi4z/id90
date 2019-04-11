@@ -2,8 +2,8 @@
 
 namespace ID90\Controller;
 
-use ID90\Config\Request;
-use ID90\Config\View;
+use ID90\Http\Request;
+use ID90\Http\View;
 
 /**
  * Class LoginAction

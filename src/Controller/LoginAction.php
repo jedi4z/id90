@@ -3,7 +3,7 @@
 namespace ID90\Controller;
 
 use GuzzleHttp\Exception\ConnectException;
-use ID90\Config\Request;
+use ID90\Http\Request;
 
 /**
  * Class AuthenticateUserAction
