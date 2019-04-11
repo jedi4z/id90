@@ -25,5 +25,7 @@ final class RenderLoginFormAction extends AppController
             ->assign('airlines', $airlines)
             ->render()
         ;
+
+        return true;
     }
 }

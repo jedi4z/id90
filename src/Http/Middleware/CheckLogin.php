@@ -12,5 +12,8 @@ final class CheckLogin implements IMiddleware
      */
     public function beforeRender()
     {
+        if (session_status() !== PHP_SESSION_ACTIVE || session_id() === '') {
+            header('Location: /');
+        }
     }
 }
