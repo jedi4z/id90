@@ -84,6 +84,38 @@ class ID90ApiClient
     }
 
     /**
+     * @param string $destination
+     * @param int $guests
+     * @param string $checkIn
+     * @param string $checkOut
+     *
+     * @return array
+     */
+    public function listHotel(
+        string $destination,
+        int $guests,
+        string $checkIn,
+        string $checkOut
+    ): array {
+        $response = $this->httpClient->get(
+            '/api/v1/hotels.json',
+            [
+                RequestOptions::HEADERS => [
+                    'Accept' => 'application/json',
+                ],
+                RequestOptions::QUERY => [
+                    'destination' => $destination,
+                    'guests[]' => $guests,
+                    'checkin' => $checkIn,
+                    'checkout' => $checkOut,
+                ]
+            ]
+        );
+
+        return $this->responseToArray($response);
+    }
+
+    /**
      * Convert a response to array.
      *
      * @param $response

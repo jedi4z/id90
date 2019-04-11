@@ -7,7 +7,6 @@ use ID90\Controller\RenderLoginFormAction;
 use ID90\Controller\RenderLoginErrorAction;
 use ID90\Http\Middleware\CheckLogin;
 use ID90\Controller\LogoutAction;
-use ID90\Controller\RenderHotelResultAction;
 use ID90\Controller\SearchHotelAction;
 
 $router = new Router();
@@ -23,7 +22,6 @@ $router->mount('/secure', function () use ($router) {
     $router->mount('/hotels', function () use ($router) {
         $router->get('/searcher', new RenderHotelSearcherAction());
         $router->get('/search', new SearchHotelAction());
-        $router->get('/results', new RenderHotelResultAction());
     });
 });
 

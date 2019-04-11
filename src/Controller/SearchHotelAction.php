@@ -2,23 +2,31 @@
 
 namespace ID90\Controller;
 
+use ID90\Http\View;
+
 /**
  * Class SearchHotelAction
  */
-final class SearchHotelAction
+final class SearchHotelAction extends AppController
 {
     public function __invoke()
     {
-        list($checkIn, $checkOut) = explode('-', $_GET['daterange']);
-
         $guests = $_GET['guests'];
         $destination = $_GET['destination'];
+
+        list($checkIn, $checkOut) = explode('-', $_GET['daterange']);
         $checkIn = $this->formatDate($checkIn);
         $checkOut = $this->formatDate($checkOut);
 
-        var_dump($guests, $destination, $checkIn, $checkOut);
+        $hotels = $this
+            ->getID90ApiClient()
+            ->listHotel($destination, $guests, $checkIn, $checkOut);
 
-        die;
+        $view = new View('hotels_result');
+
+        $view
+            ->assign('hotels', $hotels)
+            ->render();
     }
 
     /**

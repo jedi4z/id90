@@ -14,14 +14,12 @@ final class RenderLoginFormAction extends AppController
     {
         $airlines = $this
             ->getID90ApiClient()
-            ->listAirlines()
-        ;
+            ->listAirlines();
 
         $view = new View('login');
         $view
             ->assign('airlines', $airlines)
-            ->render()
-        ;
+            ->render();
 
         return true;
     }
