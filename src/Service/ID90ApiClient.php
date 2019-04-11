@@ -4,6 +4,7 @@ namespace ID90\Service;
 
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Client as HttpClient;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class ID90ApiClient
@@ -22,7 +23,7 @@ class ID90ApiClient
     {
         $this->httpClient = new HttpClient(
             [
-                'base_uri' => 'https://beta.id90travel.com'
+                'base_uri' => getenv('ID90_BASE_URI')
             ]
         );
     }
@@ -43,6 +44,54 @@ class ID90ApiClient
             ]
         );
 
+        return $this->responseToArray($response);
+    }
+
+    /**
+     * Authenticate a user.
+     *
+     * @param string $airline
+     * @param string $username
+     * @param string $password
+     * @param bool $rememberMe
+     *
+     * @return array
+     */
+    public function login(
+        string $airline,
+        string $username,
+        string $password,
+        bool $rememberMe
+    ): array {
+        $response = $this->httpClient->post(
+            '/session.json',
+            [
+                RequestOptions::HEADERS => [
+                    'Accept' => 'application/json',
+                ],
+                RequestOptions::QUERY => [
+                    'session' => [
+                        'airline' => $airline,
+                        'username' => $username,
+                        'password' => $password,
+                        'remember_me' => $rememberMe,
+                    ]
+                ]
+            ]
+        );
+
+        return $this->responseToArray($response);
+    }
+
+    /**
+     * Convert a response to array.
+     *
+     * @param $response
+     *
+     * @return array
+     */
+    private function responseToArray(ResponseInterface $response): array
+    {
         return json_decode(
             $response->getBody()->getContents(),
             true

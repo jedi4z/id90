@@ -2,6 +2,7 @@
 
 namespace ID90\Controller;
 
+use GuzzleHttp\Exception\ConnectException;
 use ID90\Config\Request;
 
 /**
@@ -18,7 +19,20 @@ final class LoginAction extends AppController
         $airline = $data['airline'];
         $username = $data['username'];
         $password = $data['password'];
+        $rememberMe = 0;
 
-        var_dump($airline, $username, $password); die;
+        if (array_key_exists('remember_me', $data)) {
+            $rememberMe = $data['remember_me'];
+        }
+
+        try {
+            $this
+                ->getID90ApiClient()
+                ->login($airline, $username, $password, $rememberMe);
+
+            header('Location: /');
+        } catch (ConnectException $e) {
+            header('Location: /login/error');
+        }
     }
 }
