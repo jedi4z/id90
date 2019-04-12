@@ -84,10 +84,13 @@ class ID90ApiClient
     }
 
     /**
+     * List all hotels.
+     *
      * @param string $destination
      * @param int $guests
      * @param string $checkIn
      * @param string $checkOut
+     * @param string $page
      *
      * @return array
      */
@@ -95,7 +98,8 @@ class ID90ApiClient
         string $destination,
         int $guests,
         string $checkIn,
-        string $checkOut
+        string $checkOut,
+        string $page
     ): array {
         $response = $this->httpClient->get(
             '/api/v1/hotels.json',
@@ -108,6 +112,9 @@ class ID90ApiClient
                     'guests[]' => $guests,
                     'checkin' => $checkIn,
                     'checkout' => $checkOut,
+                    'sort_criteria' => 'Overall',
+                    'sort_order' => 'desc',
+                    'page' => $page,
                 ]
             ]
         );

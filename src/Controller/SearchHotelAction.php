@@ -14,6 +14,7 @@ final class SearchHotelAction extends AppController
         $guests = $_GET['guests'];
         $daterange = $_GET['daterange'];
         $destination = $_GET['destination'];
+        $page = $_GET['page'];
 
         list($checkIn, $checkOut) = explode('-', $daterange);
         $checkIn = $this->formatDate($checkIn);
@@ -21,7 +22,7 @@ final class SearchHotelAction extends AppController
 
         $hotels = $this
             ->getID90ApiClient()
-            ->listHotel($destination, $guests, $checkIn, $checkOut);
+            ->listHotel($destination, $guests, $checkIn, $checkOut, $page);
 
         $view = new View('hotels_result');
 

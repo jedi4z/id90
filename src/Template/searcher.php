@@ -38,6 +38,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
+                            <input type="hidden" value="1" name="page" id="page">
                             <button type="submit" class="btn btn-success btn-md float-right">Search</button>
                         </div>
                     </div>
