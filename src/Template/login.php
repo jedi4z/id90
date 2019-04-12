@@ -28,12 +28,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="username">Username</label>
-                                        <input type="text" name="username" value="halucas"
+                                        <input type="text" name="username"
                                                id="username" class="form-control form-control-md" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Password</label>
-                                        <input type="password" name="password" value="1234567"
+                                        <input type="password" name="password"
                                                id="password" class="form-control form-control-md" required>
                                     </div>
                                     <div class="form-group">
