@@ -3,7 +3,9 @@
 
 <?php include_once 'snippets/head.php' ?>
 
-<body class="bg-dark">
+<?php include_once 'snippets/navbar.php' ?>
+
+<body class="bg-light">
 <div class="container py-5">
     <div class="row">
         <div class="col-10 mx-auto">

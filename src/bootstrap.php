@@ -1,5 +1,7 @@
 <?php
 
+setlocale(LC_MONETARY, 'en_US');
+
 # Load composer dependencies
 require dirname(__DIR__) . '/vendor/autoload.php';
 

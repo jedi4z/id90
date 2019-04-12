@@ -25,7 +25,8 @@ final class SearchHotelAction extends AppController
         $view = new View('hotels_result');
 
         $view
-            ->assign('hotels', $hotels)
+            ->assign('hotels', $hotels['hotels'])
+            ->assign('meta', $hotels['meta'])
             ->render();
     }
 

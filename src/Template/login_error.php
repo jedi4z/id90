@@ -3,7 +3,7 @@
 
 <?php include_once 'snippets/head.php' ?>
 
-<body class="bg-dark">
+<body class="bg-light">
     <div class="container py-5">
         <div class="row">
             <div class="col-md-12">
