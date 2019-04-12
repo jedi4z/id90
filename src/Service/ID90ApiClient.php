@@ -62,7 +62,8 @@ class ID90ApiClient
         string $username,
         string $password,
         bool $rememberMe
-    ): array {
+    ): array
+    {
         $response = $this->httpClient->post(
             '/session.json',
             [
@@ -100,7 +101,8 @@ class ID90ApiClient
         string $checkIn,
         string $checkOut,
         string $page
-    ): array {
+    ): array
+    {
         $response = $this->httpClient->get(
             '/api/v1/hotels.json',
             [

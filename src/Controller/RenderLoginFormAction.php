@@ -10,6 +10,10 @@ use ID90\Http\View;
  */
 final class RenderLoginFormAction extends AppController
 {
+    /**
+     * Render the login form view and list
+     * the airlines.
+     */
     public function __invoke()
     {
         $airlines = $this
@@ -20,7 +24,5 @@ final class RenderLoginFormAction extends AppController
         $view
             ->assign('airlines', $airlines)
             ->render();
-
-        return true;
     }
 }

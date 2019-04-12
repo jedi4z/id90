@@ -10,6 +10,7 @@ use ID90\Controller\LogoutAction;
 use ID90\Controller\SearchHotelAction;
 
 $router = new Router();
+
 $router->get('', new RenderLoginFormAction());
 
 $router->mount('/auth', function () use ($router) {

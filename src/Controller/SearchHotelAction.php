@@ -9,6 +9,10 @@ use ID90\Http\View;
  */
 final class SearchHotelAction extends AppController
 {
+    /**
+     * Send a query to ID90 API to get
+     * the hotels and showed it in the view.
+     */
     public function __invoke()
     {
         $guests = $_GET['guests'];

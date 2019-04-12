@@ -9,6 +9,9 @@ use ID90\Http\View;
  */
 final class RenderHotelSearcherAction extends AppController
 {
+    /**
+     * Render the searcher view.
+     */
     public function __invoke()
     {
         $view = new View('searcher');

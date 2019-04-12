@@ -7,6 +7,10 @@ namespace ID90\Controller;
  */
 final class LogoutAction extends AppController
 {
+    /**
+     * Destroy the session and redirect
+     * to the index.
+     */
     public function __invoke()
     {
         session_start();

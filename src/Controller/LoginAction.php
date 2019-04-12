@@ -7,6 +7,9 @@ namespace ID90\Controller;
  */
 final class LoginAction extends AppController
 {
+    /**
+     * Authenticate a user and redirect to searcher.
+     */
     public function __invoke()
     {
         $airline = $_POST['airline'];
