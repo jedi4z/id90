@@ -3,7 +3,9 @@
 
 <?php include_once 'snippets/head.php' ?>
 
-<body class="bg-light">
+<body class="bg-light"
+      style="background-image: url('https://www.netimpact.org/sites/default/files/images/Empire_State_Building_Observatory_manhattan_nyc_Julienne_Schaer_055_3f39d2d1-61fd-4d1b-b931-8590bf4c63a7.jpg');
+      background-repeat:no-repeat; background-size: cover;">
     <?php include_once 'snippets/navbar.php' ?>
 
     <div class="container py-5">
@@ -46,14 +48,4 @@
 </body>
 
 <?php include_once 'snippets/scripts.php' ?>
-
-<script>
-    $(function() {
-        $('input[name="daterange"]').daterangepicker({
-            locale: {
-                format: 'DD/MM/YYYY'
-            }
-        });
-    });
-</script>
 </html>

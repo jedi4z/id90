@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <a class="navbar-brand" href="#">ID90 Travel</a>
+    <a class="navbar-brand" href="/secure/hotels/searcher">ID90 Travel</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarText" aria-controls="navbarText"
             aria-expanded="false" aria-label="Toggle navigation">

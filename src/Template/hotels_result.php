@@ -6,11 +6,18 @@
 <body class="bg-light">
     <?php include_once 'snippets/navbar.php' ?>
 
-    <div class="container py-5">
+    <div class="container-fluid py-5">
         <div class="row">
-            <div class="col-md-2 mx-auto"></div>
-            <div class="col-md-10 mx-auto">
-                <?php foreach ($hotels as $hotel) : ?>
+            <div class="col-md-3 mx-auto">
+                <?php include_once 'snippets/searcher_form.php'?>
+            </div>
+            <div class="col-md-9 mx-auto">
+                <?php if (empty($hotels)) : ?>
+                    <div class="alert alert-danger" role="alert">
+                        We can't find any hotel in "<?= $destination ?>" between <?= $daterange ?>
+                    </div>
+                <?php else : ?>
+                    <?php foreach ($hotels as $hotel) : ?>
                     <div class="row mb-3">
                         <div class="col-12">
                             <div class="card">
@@ -39,6 +46,7 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
+                <?php endif; ?>
             </div>
         </div>
     </div>

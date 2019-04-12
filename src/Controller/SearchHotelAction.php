@@ -12,9 +12,10 @@ final class SearchHotelAction extends AppController
     public function __invoke()
     {
         $guests = $_GET['guests'];
+        $daterange = $_GET['daterange'];
         $destination = $_GET['destination'];
 
-        list($checkIn, $checkOut) = explode('-', $_GET['daterange']);
+        list($checkIn, $checkOut) = explode('-', $daterange);
         $checkIn = $this->formatDate($checkIn);
         $checkOut = $this->formatDate($checkOut);
 
@@ -25,6 +26,9 @@ final class SearchHotelAction extends AppController
         $view = new View('hotels_result');
 
         $view
+            ->assign('destination', $destination)
+            ->assign('daterange', $daterange)
+            ->assign('guests', $guests)
             ->assign('hotels', $hotels['hotels'])
             ->assign('meta', $hotels['meta'])
             ->render();
